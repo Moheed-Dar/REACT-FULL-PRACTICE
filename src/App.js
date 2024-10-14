@@ -1,30 +1,31 @@
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import {} from "react-bootstrap";
 import "./App.css";
-import React,{useState,useMemo} from "react";
+import React, { createRef } from "react";
 import User from "./user";
-function App() {
-  const [count, setCount] =useState(0);
-  const [item, setItem] =useState(10);
-  const rerendermemo =useMemo( function rerender(){
-    console.warn("hello")
+class App extends React.Component{
+  constructor(){
+    super();
+    this.inputRef=createRef();
+
+  }
+//  componentDidMount(){
+//   console.log(this.inputRef)
+//in this case it showing all value of dom 
+//  }
+  getVal(){
+    console.warn(this.inputRef.current.value)
+    this.inputRef.current.style.color="yellow"
+    this.inputRef.current.style.backgroundColor="black"
+  }
+  render(){
     return(
-      count *5
-    ) 
-
-  },[count])
-
-    return (
-      <div className="App">
-        <h1>count:{count}</h1>
-        <h1>item:{item}</h1>
-        <h1>{rerendermemo}</h1>
-        <button onClick={()=>setCount(count+1)} >count update</button>
-        <button onClick={()=>setItem(item+1)} >item update</button>
-       
+      <div className="App" >
+          <h1>hello there</h1>
+          <input type="text"  ref={this.inputRef} />
+          <button  onClick={()=>{this.getVal()}} >check ref</button>
       </div>
     )
-  
+  }
 }
-
 export default App;
