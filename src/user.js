@@ -1,12 +1,18 @@
-import { Fragment } from "react";
-
-function User(props) {
-  const item = "my name is moheeddar";
-  return (
-    <div>
-      <h1>this is react fragment</h1>
-      <button onClick={() => props.data(item)}>Click</button>
-    </div>
-  );
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import { Alert } from "react-bootstrap";
+import "./App.css";
+import React from "react";
+class User extends React.PureComponent {
+ 
+  render() {
+    console.warn("check purecomponents re-rendering");
+    return (
+      <div className="App">
+        <h2>hello world {this.props.count} </h2>
+        
+      </div>
+    );
+  }
 }
+
 export default User;

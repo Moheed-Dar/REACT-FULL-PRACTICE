@@ -3,16 +3,24 @@ import { Alert } from "react-bootstrap";
 import "./App.css";
 import React from "react";
 import User from "./user";
-//this is fragment componentand elements
-function App() {
-  function ptc(item) {
-    console.log(item);
+class App extends React.PureComponent {
+  constructor() {
+    super();
+    this.state = {
+      count: 1,
+    };
   }
-  return (
-    <div className="App">
-      <h1>reuse component of react</h1>
-      <User data={ptc} />
-    </div>
-  );
+  render() {
+    console.warn("check re-rendering");
+    return (
+      <div className="App">
+        <User  count={this.state.count}  />
+        <button onClick={() => this.setState({ count: this.state.count  })}>
+          Update
+        </button>
+      </div>
+    );
+  }
 }
+
 export default App;
