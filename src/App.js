@@ -1,26 +1,30 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Alert } from "react-bootstrap";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import {} from "react-bootstrap";
 import "./App.css";
-import React from "react";
+import React,{useState,useMemo} from "react";
 import User from "./user";
-class App extends React.PureComponent {
-  constructor() {
-    super();
-    this.state = {
-      count: 1,
-    };
-  }
-  render() {
-    console.warn("check re-rendering");
+function App() {
+  const [count, setCount] =useState(0);
+  const [item, setItem] =useState(10);
+  const rerendermemo =useMemo( function rerender(){
+    console.warn("hello")
+    return(
+      count *5
+    ) 
+
+  },[count])
+
     return (
       <div className="App">
-        <User  count={this.state.count}  />
-        <button onClick={() => this.setState({ count: this.state.count  })}>
-          Update
-        </button>
+        <h1>count:{count}</h1>
+        <h1>item:{item}</h1>
+        <h1>{rerendermemo}</h1>
+        <button onClick={()=>setCount(count+1)} >count update</button>
+        <button onClick={()=>setItem(item+1)} >item update</button>
+       
       </div>
-    );
-  }
+    )
+  
 }
 
 export default App;
