@@ -1,12 +1,23 @@
-function User(props){
+import { Fragment } from "react";
+
+function User(){
     return(
         
-           <div>
-             <span>name: {props.data.name}</span>
-            <span>Email: {props.data.Email}</span>
-            <button onClick={()=>alert(props.data.contact)}>click {props.data.contact}</button>
-           
-           </div>
+           <Fragment>
+            <td>
+                name:
+            </td>
+            <td>
+                class:
+            </td>
+            <td>
+                rollno:
+            </td>
+            <td>
+                contact:
+            </td>
+
+           </Fragment>
        
     )
 }
