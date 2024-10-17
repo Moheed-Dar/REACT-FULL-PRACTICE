@@ -1,31 +1,21 @@
 // import "bootstrap/dist/css/bootstrap.min.css";
 // import {} from "react-bootstrap";
 import "./App.css";
-import React, { createRef } from "react";
-import User from "./user";
-class App extends React.Component{
-  constructor(){
-    super();
-    this.inputRef=createRef();
-
+import React, {useRef} from "react";
+// import Moheed from "./moheed";
+function App(){
+  let Inputref = useRef(null)
+  function HandleInput(){
+    console.warn("this is warning")
+    Inputref.current.value="1000"
+    Inputref.current.style.color="red"
   }
-//  componentDidMount(){
-//   console.log(this.inputRef)
-//in this case it showing all value of dom 
-//  }
-  getVal(){
-    console.warn(this.inputRef.current.value)
-    this.inputRef.current.style.color="yellow"
-    this.inputRef.current.style.backgroundColor="black"
-  }
-  render(){
-    return(
-      <div className="App" >
-          <h1>hello there</h1>
-          <input type="text"  ref={this.inputRef} />
-          <button  onClick={()=>{this.getVal()}} >check ref</button>
-      </div>
-    )
-  }
+  return(
+    <div className="App">
+      <h2>this is new property</h2>
+      <input type="text" ref={Inputref} />
+      <button onClick={HandleInput}>Update</button>
+    </div>
+  )
 }
 export default App;
