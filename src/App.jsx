@@ -1,19 +1,21 @@
 // import 'bootstrap/dist/css/bootstrap.min.css';
 // // import { Button } from "react-bootstrap"; 
-import {BrowserRouter,Routes,Route} from 'react-router-dom'
-import House from './Component/home'
-import Detail from './Component/detail'
+import React,{} from 'react';
+import './App.css'
+import UserContextProvider from './context/UserContextProvider';
+import Login from './components/Login';
+import Profile from './components/Profile';
+
+
+
 function App() {
   return (
     <div className="App">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={ <House/>}/>
-            <Route path="/Detail" element={ <Detail/>}/>
-            <Route path="/Detail" element={ <Detail/>}/>
-          </Routes>
-        </BrowserRouter>
-        {/* </BrowserRouter> */}
+      <UserContextProvider>
+      <h1>React</h1>
+      <Login />
+      <Profile />
+      </UserContextProvider>
     </div>
   );
 }
