@@ -6,16 +6,28 @@
 .App{
     text-align: center;
 }
-.Home{
-    position: relative;
-}
 
-.img-cart{
-    width:90px;
-    position:absolute;
-    right:0px;
-    top:0px;
-}
+
+.add-to-cart img{
+    width: 80px;
+      position: absolute;
+      right: 0%;
+      top: 0px;
+  }
 button:hover{
       box-shadow: 3px 4px  4px  black;
-}
+    }
+    .cart-count{
+        position: absolute;
+        right: 9px;
+        top: 14px;
+        z-index: 1;
+        background-color: red;
+        padding: 1px;
+        width: 22px;
+        height: 25px;
+        border-radius: 50%;
+        color: #fff;
+        font-weight: bolder;
+
+    }
